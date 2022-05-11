@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f2c5f63e-834a-4898-b2a7-45552cc97303": {
+      "ProjectGuid": "f2c5f63e-834a-4898-b2a7-45552cc97303",
+      "DisplayName": "Ethernet listener Faurecia",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": -1
+    },
+    "e695fcbc-0834-4b6a-bb95-f64631a189a5": {
+      "ProjectGuid": "e695fcbc-0834-4b6a-bb95-f64631a189a5",
+      "DisplayName": "Ethernet test Faurecia",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
