@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Ethernet_listener_Faurecia;
 
 namespace FaureciaEthernetListener
@@ -6,13 +7,16 @@ namespace FaureciaEthernetListener
     internal class Program
     {
         protected static int nbBlock, chosenBlock, chosenDesk, checkOrEditMode /* 1 pour check, 2 pour edit */;
-        protected static string sourceFilePath = "../../../../../nbDesksPerBlock"/* chemin relatif du fichier source */, userInput;
+        protected static string sourceFilePath = "../../../../../nbDesksPerBlock"/* chemin relatif du fichier source */,
+            xlsxFilePath = "../../../../../test.xlsx"/* chemin relatif du fichier Excel */, userInput;
         protected static bool goBack = false;
         protected static char cancelChar = 'q';
 
 
         static void Main(string[] args)
         {
+            newSpreadsheet();
+
             nbBlock = blockNumberDetection();
 
             // ****     Création des blocks (en liste)  **** \\
@@ -169,8 +173,30 @@ namespace FaureciaEthernetListener
 
         private static void newSpreadsheet()
         {
-            /*SpreadsheetDocument spreadsheet = new SpreadsheetDocument();
-            spreadsheet.Create();*/
+            using (SpreadsheetDocument spreadsheet = SpreadsheetDocument.Open(xlsxFilePath,true))
+            {
+                // Add a WorksheetPart.  
+                WorksheetPart newWorksheetPart = spreadsheet.WorkbookPart.AddNewPart<WorksheetPart>();
+                newWorksheetPart.Worksheet = new Worksheet(new SheetData());
+
+                // Create Sheets object.  
+                Sheets sheets = spreadsheet.WorkbookPart.Workbook.GetFirstChild<Sheets>();
+                string relationshipId = spreadsheet.WorkbookPart.GetIdOfPart(newWorksheetPart);
+
+                // Create a unique ID for the new worksheet.  
+                uint sheetId = 1;
+                if (sheets.Elements<Sheet>().Count() > 0)
+                {
+                    sheetId = sheets.Elements<Sheet>().Select(s => s.SheetId.Value).Max() + 1;
+                }
+
+                // Give the new worksheet a name.  
+                string sheetName = "mySheet" + sheetId;
+
+                // Append the new worksheet and associate it with the workbook.  
+                Sheet sheet = new Sheet() { Id = relationshipId, SheetId = sheetId, Name = sheetName };
+                sheets.Append(sheet);
+            }
 
         }
 
