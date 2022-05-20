@@ -2,8 +2,8 @@
 {
     internal class Desk
     {
-        protected int id, idBlock;
-        protected int workingEthernet = 0; // à changer
+        protected string name;
+        protected int id, idBlock, workingEthernet = 0; // à changer
 
 
         /* NAME : Desk
@@ -15,6 +15,12 @@
         {
             this.id = id + 1; // + 1 pour ajuster avec la liste commençant par 0
             this.idBlock = idBlock;
+            name = "Q";
+            if (this.idBlock<10) name += "0" + Convert.ToString(this.idBlock);
+            else name += Convert.ToString(this.idBlock);
+            name += "-";
+            if (this.id<10) name += "0" + Convert.ToString(this.id);
+            else name += Convert.ToString(this.id);
         }
 
 
@@ -50,11 +56,20 @@
          */
         public new string ToString()
         {
-            return string.Format("\nLa prise ethernet du bureau Q{0}-{1} est en etat '{2}'\n\n",
-                this.idBlock < 10 ? "0" + (this.idBlock) : this.idBlock,
-                this.id < 10 ? "0" + (this.id): this.id,
+            return string.Format("\nLa prise ethernet du bureau {0} est en etat '{1}'\n\n",
+                /*this.idBlock < 10 ? "0" + (this.idBlock) : this.idBlock,
+                this.id < 10 ? "0" + (this.id): this.id,*/
+                this.name,
                 this.getWorkingEthernetState()); // -1 pour ajuster avec la liste commençant par 0
         }
+
+
+        /* NAME : getName
+         * IN   : X
+         * OUT  : Une chaîne de caractères (le nom du Desk en question)
+         * VA   : Fontion de get classique, retournant le nom
+         */
+        public string getName() { return name; }
 
 
         /* NAME : getId

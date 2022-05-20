@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Spreadsheet;
+﻿using System.IO;
 using Ethernet_listener_Faurecia;
 
 namespace FaureciaEthernetListener
@@ -8,21 +7,20 @@ namespace FaureciaEthernetListener
     {
         protected static int nbBlock, chosenBlock, chosenDesk, checkOrEditMode /* 1 pour check, 2 pour edit */;
         protected static string sourceFilePath = "../../../../../nbDesksPerBlock"/* chemin relatif du fichier source */,
-            xlsxFilePath = "../../../../../test.xlsx"/* chemin relatif du fichier Excel */, userInput;
+            csvFilePath = "../../../../../tableauEtatEthernet.csv"/* chemin relatif du fichier Excel */, userInput;
         protected static bool goBack = false;
         protected static char cancelChar = 'q';
 
 
         static void Main(string[] args)
         {
-            newSpreadsheet();
-
             nbBlock = blockNumberDetection();
 
             // ****     Création des blocks (en liste)  **** \\
             Block[] blockList = new Block[nbBlock];
             for (int i = 0; i < nbBlock; i++) blockList[i] = new Block(i);
 
+            StreamWriter sw = InitCSVFile(blockList);
 
             // ****     Boucle du programme principal   **** \\
             while (true) {
@@ -49,14 +47,17 @@ namespace FaureciaEthernetListener
                         else if (checkOrEditMode == 2) // si choix edit
                         {
                             Desk displayDesk = DeskSelection(selectedBlock);
-                            if (goBack!= true)
-                                   DeskStateEdit(displayDesk);
+                            if (goBack != true)
+                            {
+                                DeskStateEdit(displayDesk, sw);
+                                InitCSVFile(blockList);
+                            }
                             else break;
                         }
                     }
                 }
             }
-                Console.WriteLine("\nAu revoir, a bientot !\n");
+            Console.WriteLine("\nAu revoir, a bientot !\n");
             System.Environment.Exit(0);
         }
 
@@ -82,8 +83,8 @@ namespace FaureciaEthernetListener
                 return nbBlock;
             } catch {
                 Console.WriteLine("Erreur de lecture du fichier source");
-                System.Environment.Exit(1);
                 return 1;
+                System.Environment.Exit(1);
             }
         }
 
@@ -171,34 +172,51 @@ namespace FaureciaEthernetListener
         }
 
 
-        private static void newSpreadsheet()
+        /* NAME : InitCSVFile
+         * IN   : Block[] (une liste de Block)
+         * OUT  : Un StreamWriter (pour écrire dans un fichier)
+         * VA   : 
+         */
+        private static StreamWriter? InitCSVFile(Block[] blockList)
         {
-            using (SpreadsheetDocument spreadsheet = SpreadsheetDocument.Open(xlsxFilePath,true))
-            {
-                // Add a WorksheetPart.  
-                WorksheetPart newWorksheetPart = spreadsheet.WorkbookPart.AddNewPart<WorksheetPart>();
-                newWorksheetPart.Worksheet = new Worksheet(new SheetData());
-
-                // Create Sheets object.  
-                Sheets sheets = spreadsheet.WorkbookPart.Workbook.GetFirstChild<Sheets>();
-                string relationshipId = spreadsheet.WorkbookPart.GetIdOfPart(newWorksheetPart);
-
-                // Create a unique ID for the new worksheet.  
-                uint sheetId = 1;
-                if (sheets.Elements<Sheet>().Count() > 0)
+            try{
+                StreamWriter ecriture = new StreamWriter(csvFilePath);
+                ecriture.Write("ID Bureau,Etat\r");
+                foreach (Block block in blockList)
                 {
-                    sheetId = sheets.Elements<Sheet>().Select(s => s.SheetId.Value).Max() + 1;
+                    foreach (Desk desk in block.getDeskList())
+                    {
+                        ecriture.Write("{0},{1}\r",
+                            /*block.getId() < 10 ? "0" + (block.getId()) : block.getId(),
+                            desk.getId() < 10 ? "0" + (desk.getId()) : desk.getId(),*/
+                            desk.getName(),
+                            desk.getWorkingEthernetState());
+                    }
                 }
-
-                // Give the new worksheet a name.  
-                string sheetName = "mySheet" + sheetId;
-
-                // Append the new worksheet and associate it with the workbook.  
-                Sheet sheet = new Sheet() { Id = relationshipId, SheetId = sheetId, Name = sheetName };
-                sheets.Append(sheet);
+                ecriture.Close();
+                return ecriture;
+            } catch {
+                Console.WriteLine("Erreur d'ecriture");
+                return null;
+                Environment.Exit(1);
             }
-
         }
+
+
+        /*private static void EditCSVFile(Desk desk)
+        {
+            StreamReader SR = new StreamReader(csvFilePath);
+            string s = SR.ReadLine();
+            SR.Close();
+
+            Console.WriteLine(s);
+
+            s = s.Replace(desk.getName(), desk.getName() + "," + desk.getWorkingEthernetState());
+
+            StreamWriter SW = new StreamWriter(csvFilePath);
+            SW.WriteLine(s);
+            SW.Close();
+        }*/
 
 
         /* NAME : DeskStateEdit
@@ -206,7 +224,7 @@ namespace FaureciaEthernetListener
          * OUT  : X
          * VA   : Vérifie si l'ordinateur est connecté à un réseau : si oui il l'écrit dans un fichier .ods ; sinon, il attend que l'utilisateur appuie sur la barre espace pour l'écrire dans le fichier .ods
          */
-        private static void DeskStateEdit(Desk desk)
+        private static void DeskStateEdit(Desk desk, StreamWriter sw)
         {
             // Console.Write("\nAppuyez sur espace s'il n'y a pas de connexion internet.\n");
 
@@ -217,12 +235,14 @@ namespace FaureciaEthernetListener
             else if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable()) {
                 desk.setWorkingEthernet(1);
             }
+
+            //EditCSVFile(desk);
         }
     }
 }
 
 /*
  * à faire :
- *  -> écriture excel
  *  -  meilleure détection de taille de bloc (peu importe la taille du nb)
+ *  -  attente appuie barre espace
  */
