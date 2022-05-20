@@ -6,11 +6,13 @@
     <RootNamespace>Ethernet_listener_Faurecia</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Configurations>Debug;Release;Test</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationIcon>logo-forvia.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DocumentFormat.OpenXml" Version="2.16.0" />
-    <PackageReference Include="Uno.UI" Version="4.2.6" />
+    <Content Include="logo-forvia.ico" />
   </ItemGroup>
 
 </Project>

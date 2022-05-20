@@ -12,20 +12,4 @@ C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\E
 C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\Debug\net6.0\ref\Ethernet listener Faurecia.dll
 C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\Debug\net6.0\Ethernet listener Faurecia.pdb
 C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\Debug\net6.0\Ethernet listener Faurecia.genruntimeconfig.cache
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\System.Runtime.InteropServices.WindowsRuntime.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.Diagnostics.Eventing.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.Foundation.Logging.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.Foundation.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.UI.Composition.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.UI.Dispatching.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.UI.FluentTheme.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.UI.FluentTheme.v1.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.UI.FluentTheme.v2.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.UI.Toolkit.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.UI.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.Xaml.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\Uno.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\Debug\net6.0\Ethernet listener Faurecia.d-bfalse.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\Debug\net6.0\Ethernet listener Faurecia.csproj.CopyComplete
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
-C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\Debug\net6.0\Ethernet listener Faurecia.GeneratedMSBuildEditorConfig.editorconfig

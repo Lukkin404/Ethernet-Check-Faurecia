@@ -3,7 +3,7 @@
     internal class Desk
     {
         protected string name;
-        protected int id, idBlock, workingEthernet = 0; // à changer
+        protected int id, idBlock, workingEthernet = 0;
 
 
         /* NAME : Desk
@@ -57,8 +57,6 @@
         public new string ToString()
         {
             return string.Format("\nLa prise ethernet du bureau {0} est en etat '{1}'\n\n",
-                /*this.idBlock < 10 ? "0" + (this.idBlock) : this.idBlock,
-                this.id < 10 ? "0" + (this.id): this.id,*/
                 this.name,
                 this.getWorkingEthernetState()); // -1 pour ajuster avec la liste commençant par 0
         }

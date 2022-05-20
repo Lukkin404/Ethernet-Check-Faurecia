@@ -43,16 +43,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "DocumentFormat.OpenXml": {
-              "target": "Package",
-              "version": "[2.16.0, )"
-            },
-            "Uno.UI": {
-              "target": "Package",
-              "version": "[4.2.6, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

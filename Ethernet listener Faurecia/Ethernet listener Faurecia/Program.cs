@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Ethernet_listener_Faurecia;
+﻿using Ethernet_listener_Faurecia;
 
 namespace FaureciaEthernetListener
 {
@@ -7,7 +6,7 @@ namespace FaureciaEthernetListener
     {
         protected static int nbBlock, chosenBlock, chosenDesk, checkOrEditMode /* 1 pour check, 2 pour edit */;
         protected static string sourceFilePath = "../../../../../nbDesksPerBlock"/* chemin relatif du fichier source */,
-            csvFilePath = "../../../../../tableauEtatEthernet.csv"/* chemin relatif du fichier Excel */, userInput;
+            csvFilePath = "../../../../../tableauEtatEthernet-" + DateTime.Now.ToString("yyyyMMdd-HHmm") + ".csv"/* chemin relatif du fichier Excel */, userInput;
         protected static bool goBack = false;
         protected static char cancelChar = 'q';
 
@@ -143,13 +142,12 @@ namespace FaureciaEthernetListener
             Console.Write("\nBureau numero : ");
             do {
                 do try
-                    {
-                        chosenDesk = -1;
-                        userInput = Console.ReadLine();
-                        if (userInput == Convert.ToString(cancelChar)) goBack = true;
-                        else chosenDesk = Convert.ToInt32(userInput);
-                    }
-                    catch { Exception e; }
+                {
+                    chosenDesk = -1;
+                    userInput = Console.ReadLine();
+                    if (userInput == Convert.ToString(cancelChar)) goBack = true;
+                    else chosenDesk = Convert.ToInt32(userInput);
+                } catch { Exception e; }
                 while ((chosenDesk <= 0 || chosenDesk > BlockSelection.getNbEthernetConnection()) && goBack != true);
             } while (chosenBlock == -1); // Si la valeur reste à -1, alors c'est que la valeur entrée ensuite est incorrecte, donc une nouvelle entrée est demandée
             Desk[] editedList = BlockSelection.getDeskList();
@@ -160,35 +158,21 @@ namespace FaureciaEthernetListener
         }
 
 
-        /* NAME : SpacebarPressed
-         * IN   : X
-         * OUT  : Un bool (état de la barre espace)
-         * VA   : Retourne 'true' si la barre espace est appuyée
-         */
-        private static bool SpacebarPressed()
-        {
-            if(Console.ReadKey(true).Key == ConsoleKey.Spacebar);
-            return true;
-        }
-
-
         /* NAME : InitCSVFile
          * IN   : Block[] (une liste de Block)
          * OUT  : Un StreamWriter (pour écrire dans un fichier)
-         * VA   : 
+         * VA   : Imprime dans le fichier .csv horodaté l'état actuel de la liste des bureaux de chaque bloc sous forme de tableur interprétable (colonnes séparées par ',')
          */
         private static StreamWriter? InitCSVFile(Block[] blockList)
         {
             try{
                 StreamWriter ecriture = new StreamWriter(csvFilePath);
-                ecriture.Write("ID Bureau,Etat\r");
+                ecriture.Write("ID Bureau,Etat\n");
                 foreach (Block block in blockList)
                 {
                     foreach (Desk desk in block.getDeskList())
                     {
-                        ecriture.Write("{0},{1}\r",
-                            /*block.getId() < 10 ? "0" + (block.getId()) : block.getId(),
-                            desk.getId() < 10 ? "0" + (desk.getId()) : desk.getId(),*/
+                        ecriture.Write("{0},{1}\n",
                             desk.getName(),
                             desk.getWorkingEthernetState());
                     }
@@ -198,25 +182,8 @@ namespace FaureciaEthernetListener
             } catch {
                 Console.WriteLine("Erreur d'ecriture");
                 return null;
-                Environment.Exit(1);
             }
         }
-
-
-        /*private static void EditCSVFile(Desk desk)
-        {
-            StreamReader SR = new StreamReader(csvFilePath);
-            string s = SR.ReadLine();
-            SR.Close();
-
-            Console.WriteLine(s);
-
-            s = s.Replace(desk.getName(), desk.getName() + "," + desk.getWorkingEthernetState());
-
-            StreamWriter SW = new StreamWriter(csvFilePath);
-            SW.WriteLine(s);
-            SW.Close();
-        }*/
 
 
         /* NAME : DeskStateEdit
@@ -226,8 +193,6 @@ namespace FaureciaEthernetListener
          */
         private static void DeskStateEdit(Desk desk, StreamWriter sw)
         {
-            // Console.Write("\nAppuyez sur espace s'il n'y a pas de connexion internet.\n");
-
             if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable()) {
                 desk.setWorkingEthernet(2);
             }
@@ -240,9 +205,3 @@ namespace FaureciaEthernetListener
         }
     }
 }
-
-/*
- * à faire :
- *  -  meilleure détection de taille de bloc (peu importe la taille du nb)
- *  -  attente appuie barre espace
- */

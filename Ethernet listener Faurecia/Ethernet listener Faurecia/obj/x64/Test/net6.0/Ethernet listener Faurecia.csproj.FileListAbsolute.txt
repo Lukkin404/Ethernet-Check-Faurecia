@@ -1,0 +1,15 @@
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\x64\Test\net6.0\Ethernet listener Faurecia.exe
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\x64\Test\net6.0\Ethernet listener Faurecia.deps.json
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\x64\Test\net6.0\Ethernet listener Faurecia.runtimeconfig.json
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\x64\Test\net6.0\Ethernet listener Faurecia.dll
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\x64\Test\net6.0\ref\Ethernet listener Faurecia.dll
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\bin\x64\Test\net6.0\Ethernet listener Faurecia.pdb
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\x64\Test\net6.0\Ethernet listener Faurecia.csproj.AssemblyReference.cache
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\x64\Test\net6.0\Ethernet listener Faurecia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\x64\Test\net6.0\Ethernet listener Faurecia.AssemblyInfoInputs.cache
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\x64\Test\net6.0\Ethernet listener Faurecia.AssemblyInfo.cs
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\x64\Test\net6.0\Ethernet listener Faurecia.csproj.CoreCompileInputs.cache
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\x64\Test\net6.0\Ethernet listener Faurecia.dll
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\x64\Test\net6.0\ref\Ethernet listener Faurecia.dll
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\x64\Test\net6.0\Ethernet listener Faurecia.pdb
+C:\Users\guill\OneDrive\Etudes\DUT\Semestre 4\0 - Stage\Vérification ethernet\Ethernet listener Faurecia\Ethernet listener Faurecia\obj\x64\Test\net6.0\Ethernet listener Faurecia.genruntimeconfig.cache
