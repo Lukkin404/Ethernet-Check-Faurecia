@@ -4,7 +4,7 @@
     {
         protected int id, nbDesk;
         protected Desk[] deskList;
-        protected static string sourceFilePath = "../../../../../nbDesksPerBlock"; // chemin relatif du fichier source
+        protected static string sourceFilePath = "../nbDesksPerBlock"; // chemin relatif du fichier source
 
 
         /* NAME : Block

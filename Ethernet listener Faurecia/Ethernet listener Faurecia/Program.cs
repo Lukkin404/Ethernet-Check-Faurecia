@@ -5,8 +5,8 @@ namespace FaureciaEthernetListener
     internal class Program
     {
         protected static int nbBlock, chosenBlock, chosenDesk, checkOrEditMode /* 1 pour check, 2 pour edit */;
-        protected static string sourceFilePath = "../../../../../nbDesksPerBlock"/* chemin relatif du fichier source */,
-            csvFilePath = "../../../../../tableauEtatEthernet-" + DateTime.Now.ToString("yyyyMMdd-HHmm") + ".csv"/* chemin relatif du fichier Excel */, userInput;
+        protected static string sourceFilePath = "../nbDesksPerBlock"/* chemin relatif du fichier source */,
+            csvFilePath = "../out/tableauEtatEthernet-" + DateTime.Now.ToString("yyyyMMdd-HHmm") + ".csv"/* chemin relatif du fichier Excel */, userInput;
         protected static bool goBack = false;
         protected static char cancelChar = 'q';
 
